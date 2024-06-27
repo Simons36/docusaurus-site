@@ -1,0 +1,244 @@
+{
+  "main": {
+    "id": "4b2e8477849a0e06",
+    "type": "split",
+    "children": [
+      {
+        "id": "a5b7ec3d6a3b1b7b",
+        "type": "split",
+        "children": [
+          {
+            "id": "d87739fe9eb30666",
+            "type": "tabs",
+            "dimension": 64.04109589041096,
+            "children": [
+              {
+                "id": "a39c3d917309baf7",
+                "type": "leaf",
+                "state": {
+                  "type": "graph",
+                  "state": {}
+                }
+              }
+            ]
+          },
+          {
+            "id": "05727a60d1987489",
+            "type": "tabs",
+            "dimension": 35.95890410958904,
+            "children": [
+              {
+                "id": "04ef8644f5fdfc0a",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "terminal:terminal",
+                  "state": {
+                    "terminal:terminal": {
+                      "cwd": "/home/simaosilva/Pessoal/docusaurus-site/docs",
+                      "focus": false,
+                      "profile": {
+                        "args": [],
+                        "executable": "/bin/zsh",
+                        "name": "zsh",
+                        "platforms": {
+                          "darwin": true,
+                          "linux": true
+                        },
+                        "pythonExecutable": "python3",
+                        "restoreHistory": true,
+                        "successExitCodes": [
+                          "0",
+                          "SIGINT",
+                          "SIGTERM"
+                        ],
+                        "terminalOptions": {},
+                        "type": "integrated",
+                        "useWin32Conhost": true
+                      },
+                      "serial": {
+                        "columns": 170,
+                        "data": "╭─\u001b[32msimaosilva\u001b[36m@\u001b[32mkilogram\u001b[0m \u001b[34;1m~/Pessoal/docusaurus-site/docs\u001b[0m  \r\n╰─➤  ",
+                        "rows": 18
+                      }
+                    }
+                  },
+                  "pinned": true
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "47ee31521ac6bea3",
+    "type": "split",
+    "children": [
+      {
+        "id": "164492536e8e3448",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1aba29d45bf9dbee",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4b5e5bbec5edbdef",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4506ce1625daad51",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6e2898d403020de0",
+    "type": "split",
+    "children": [
+      {
+        "id": "e5863a4d557c9448",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "46aee6197867825b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "57932892ceef2a24",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9ef6db77b43e9b46",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "70e9f391e4a273da",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "terminal:Open terminal": false
+    }
+  },
+  "active": "a39c3d917309baf7",
+  "lastOpenFiles": [
+    "Computer Networks/Cybersecurity/Basic Concepts in Software Security.md",
+    "Computer Networks/Cybersecurity/Pasted image 20240122093324.png",
+    "Computer Networks/Pasted image 20240122093324.png",
+    "docs/Computer.md",
+    "docs",
+    "Computer Networks/Cybersecurity/Security Systems/Wi-Fi Security.md",
+    "Computer Networks/Cybersecurity/Security Systems/Introduction to Cybersecurity in Networks and Systems.md",
+    "Computer Networks/Cybersecurity/Security Systems/Cryptographic Services.md",
+    "Location Services/img/GPS equation.png",
+    "Location Services/img/GPS comparision.png",
+    "Location Services/img",
+    "Location Services/Indoor Location.md",
+    "Location Services/GPS.md",
+    "Location Services",
+    "Virtualization/Docker/Introduction to Docker.md",
+    "Virtualization/Docker/0. Comprehensive Docker Guide.md",
+    "Virtualization/Docker",
+    "Virtualization",
+    "Operating Systems/Cybersecurity/img/return oriented programming attack example.png",
+    "Operating Systems/Cybersecurity/img/return address subversion.png",
+    "Operating Systems/Cybersecurity/img/ret example.png",
+    "Operating Systems/Cybersecurity/img/heap diagram.png",
+    "Operating Systems/Cybersecurity/img/System Calls Table.png",
+    "Operating Systems/Cybersecurity/img/Stack of function pointer clobbering code example.png",
+    "Operating Systems/Cybersecurity/Vulnerabilities/Race Conditions.md",
+    "Operating Systems/Cybersecurity/Vulnerabilities/Format Strings.md",
+    "Operating Systems/Cybersecurity/Vulnerabilities/Buffer Overflows.md",
+    "Operating Systems/Cybersecurity/Security Mechanisms/Protection in Operating Systems.md",
+    "Operating Systems/Cybersecurity/Security Mechanisms/Dynamic Protection.md",
+    "Operating Systems/Cybersecurity/img",
+    "Operating Systems/Cybersecurity/Vulnerabilities",
+    "Operating Systems/Cybersecurity/Security Mechanisms",
+    "Operating Systems/Cybersecurity",
+    "Operating Systems",
+    "Information Systems/Database Systems/Transaction and Concurrency.md",
+    "Information Systems/Database Systems/Schema Tuning.md",
+    "Information Systems/Database Systems/Query Processing.md",
+    "Information Systems/Database Systems/Indexing.md",
+    "Information Systems/Database Systems/File Organization.md",
+    "Computer Networks/Cybersecurity/Vulnerabilities/XSS Vulnerabilities.md",
+    "Computer Networks/Cybersecurity/Vulnerabilities/XML Injection.md",
+    "Computer Networks/Cybersecurity/Vulnerabilities/Web Vulnerabilities.md",
+    "Computer Networks/Cybersecurity/Vulnerabilities/Database Vulnerabilities.md",
+    "Computer Networks/Cybersecurity/Security Systems/Secure Channels.md",
+    "Computer Networks/Cybersecurity/Security Systems/Network Security Overview.md"
+  ]
+}
