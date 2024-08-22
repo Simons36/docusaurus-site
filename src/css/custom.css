@@ -28,3 +28,48 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.pink {
+  color: pink;
+}
+
+.lightSkyBlue {
+  color: lightskyblue;
+}
+
+.lightgreen {
+  color: lightgreen;
+}
+
+.orange {
+  color: orange;
+}
+
+.detailsNotImportant {
+  details {
+    background-color: #717172;
+    outline: #d4d5d8; /* Define the outline with width, style, and color */
+    border-color: #d4d5d8;
+    --docusaurus-details-decoration-color: white;
+    --ifm-link-color: #4cb3d4;
+    
+  }
+}
+
+.admonitionWithoutIcon {
+  .admonitionIcon_node_modules-\@docusaurus-theme-classic-lib-theme-Admonition-Layout-styles-module {
+    display: none;
+  }
+}
+
+.hide {
+  display: none;
+}

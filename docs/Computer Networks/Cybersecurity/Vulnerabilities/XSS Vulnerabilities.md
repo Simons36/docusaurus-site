@@ -1,10 +1,18 @@
-#notes #cybersecurity #computer-networks #web 
+---
+tags:
+  - cybersecurity
+  - computer-networks
+  - web
+  - to-do
+---
+
+# XSS Vulnerabilities
 
 XSS (or Cross Site Scripting) vulnerabilities envolve **running illegal code** (scripts), introduced by an attacker, in the **victim's browser** (typically JavaScript). XSS vulnerabilities are some of the more common web app security issues (according to OWASP, Top3 vulnerability in 2013, Top7 in 2017). 
 
 In this note, we aim to give a full exposure of what is a XSS vulnerability and its different variations, and how to fix them.
 
-# XSS Types
+## XSS Types
 
 There are three different types of XSS vulnerabilities we will present:
 
@@ -17,7 +25,7 @@ There are three different types of XSS vulnerabilities we will present:
 	- DOM -> Document Object Model
 	- Manipulates JavaScript, not HTML
 
-## Reflected XSS
+### Reflected XSS
 
 In reflected XSS, there are three entities involved:
 
@@ -29,10 +37,9 @@ What usually happens is that the attacker will send (via email, for example) the
 
 Here is an example of the exchange of messages:
 
-![[Reflected XSS Overview Example.png]]
+![](img/Reflected%20XSS%20Overview%20Example.png)<br></br>
 **Fig.1:** Reflected XSS overview
-
 
 In the following lines we will compare a possible normal request-response interaction between user and website, and another interaction in a possible attack:
 
-__
+(To-Do)

@@ -1,3 +1,10 @@
+---
+tags:
+  - cybersecurity
+  - computer-networks
+  - to-do
+---
+
 # Wireless Security Challenges
 
 Wireless networks possess some additional security challenges that don't exist in traditional, because the communication can be easily is propagated through an **uncontrolled environment** (you can intercept all communication using a **radio antenna**; in wired communication is harder). The two main **problems** of wireless communication are:
@@ -57,7 +64,8 @@ For this, WEP uses:
 
 We take every message M, and create its **CRC value** (CRC is Cyclic Redundancy Check) for **integrity**; then, we concatenate M with the CRC and **XOR** it with the RC4 stream cipher, created from the **shared symmetric key** plus an **IV** (to ensure confidentiality). The following image is a representation of this process:
 
-![[Pasted image 20240113165054.png]]
+![](img/Pasted%20image%2020240113165054.png)<br></br>
+**Fig.1:** Diagram showing how messages are encrypted in WEP
 
 ### Problems
 
@@ -74,11 +82,11 @@ WEP security has several problems, such as:
 
 Because for the same SSID (same network) the encrypting key used is **always the same**, and there is no control over the IV repetition, we may obtain cases of two different messages encrypted with the **same** key stream. This is a problem because:
 
-> For messages $M_1$ and $M_2$, and key stream $K_S$
-> $C_1 = M_1$ $\oplus$ $K_S$
-> $C_2 = M_2$ $\oplus$ $K_S$
-> $C_1$ $\oplus$ $C_2 = M_1 \oplus K_S \oplus M_2 \oplus K_S$ 
-> {'<=>'}
+> For messages $M_1$ and $M_2$, and key stream $K_S$<br></br>
+> $C_1 = M_1$ $\oplus$ $K_S$<br></br>
+> $C_2 = M_2$ $\oplus$ $K_S$<br></br>
+> $C_1$ $\oplus$ $C_2 = M_1 \oplus K_S \oplus M_2 \oplus K_S$<br></br>
+> $<=>$<br></br>
 > $M_1 \oplus M_2 \oplus (K_S \oplus K_S) = M_1 \oplus M_2 \oplus (0) = M_1 \oplus M_2$
 
 This way, from two messages encrypted with the same keystream, we can obtain the XOR of the two unencrypted messages.
@@ -96,18 +104,19 @@ For authentication, WEP security follows this protocol:
 
 The following diagram depicts this process:
 
-![[Pasted image 20240113175233.png]]
+![](img/Pasted%20image%2020240113175233.png)<br></br>
+**Fig.2:** WEP Authentication Process
 
 #### WEP Authentication Attack
 
 This authentication mechanism is very easily attacked in the following manner:
 
-1. <span style="color:green">Good station</span> sends authentication request to **AP**
-2. **AP** generates **nonce** (we will call this nonce message **M**) and sends it to <span style="color:green">good station</span>
-3. <span style="color:green">Good station</span> receives message M, encrypts it using **keystream(K, IV)**, thus creating cryptogram **C**, and sends C and IV to AP
-4. <span style="color:red">Attacker</span> intercepts the original message **M** and this last message **C**. Because $C = M \oplus KeyStream(K, IV)$, an attacker can **obtain keystream** for the used IV, without ever knowing K
-5. <span style="color:red">Attacker</span> then proceeds to make authentication request to AP; after AP sends a nonce, the <span style="color:red">attacker</span> can encrypt it with the keystream obtained in step 4, and send it back to the AP
-6. <span style="color:red">Attacker</span> has now **successfully authenticated** to the AP, **without knowing key K**
+1. <span class="green">Good station</span> sends authentication request to **AP**
+2. **AP** generates **nonce** (we will call this nonce message **M**) and sends it to <span class="green">good station</span>
+3. <span class="green">Good station</span> receives message M, encrypts it using **keystream(K, IV)**, thus creating cryptogram **C**, and sends C and IV to AP
+4. <span class="red">Attacker</span> intercepts the original message **M** and this last message **C**. Because $C = M \oplus KeyStream(K, IV)$, an attacker can **obtain keystream** for the used IV, without ever knowing K
+5. <span class="red">Attacker</span> then proceeds to make authentication request to AP; after AP sends a nonce, the <span class="red">attacker</span> can encrypt it with the keystream obtained in step 4, and send it back to the AP
+6. <span class="red">Attacker</span> has now **successfully authenticated** to the AP, **without knowing key K**
 
 ## WPA (Wi-Fi Protected Access)
 
@@ -148,4 +157,4 @@ The problems with WPA are the following
 
 WPA2 aims to improve on WPA, using many of its security mechanisms, but adding **AES-CCMP**.
 
-**AES
+(TO-DO)

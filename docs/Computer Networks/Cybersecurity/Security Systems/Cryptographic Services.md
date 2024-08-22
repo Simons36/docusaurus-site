@@ -1,3 +1,10 @@
+---
+tags:
+  - cybersecurity
+  - computer-networks
+  - cryptography
+---
+
 - To enforce security in systems, we will need to use the following Cryptographic Services:
 ### Confidentiality
 

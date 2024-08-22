@@ -1,4 +1,11 @@
-#cybersecurity #computer-networks #web #notes 
+---
+tags:
+  - cybersecurity
+  - computer-networks
+  - web
+author:
+  - Simão Silva
+---
 
 The Web has vastly expanded over the past couple of decades, and with this came the emergence of thousands of **vulnerabilities**, and subsequently, **attacks** across the Internet. But why is the Web source for so many vulnerabilities? The truth is that the Web gathers all of three factors that mainly influence vulnerabilities, which are:
 
@@ -10,6 +17,6 @@ Furthermore, the Web is not a "single" technology, but rather a conglomerate of 
 
 Because of this complexity, there are **many vulnerabilities** that affect the Web; below are links to notes of some of the more common vulnerabilities, such as:
 
-- **[[XSS Vulnerabilities|XSS Vulnerabilities (Cross Site Scripting)]]**
-- **[[Database Vulnerabilities|Database Vulnerabilities (SQL Injections)]]**
-- **[[XML Injection]]**
+- **[XSS Vulnerabilities (Cross Site Scripting)](XSS%20Vulnerabilities.md)**
+- **[Database Vulnerabilities (SQL Injections)](Database%20Vulnerabilities.md)**
+- **[XML Injection](XML%20Injection.md)**

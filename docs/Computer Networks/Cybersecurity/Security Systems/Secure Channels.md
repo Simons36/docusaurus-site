@@ -1,6 +1,6 @@
 # Secure Channels: SSH and TLS
 
-A secure channel is a means of data transmission between two channels, and it provides the following all of the following three: **confidentiality**, **authenticity** and **integrity**. Secure channels are implemented from the **transport layer** and above., and the two protocols we will be looking at are **SSH** and **TLS**.
+A secure channel is a means of data transmission between two channels, and it provides the following all of the following three: **confidentiality**, **authenticity** and **integrity**. Secure channels are implemented from the **transport layer** and above; and the two protocols we will be looking at are **SSH** and **TLS**.
 
 ## Attacker Model
 
@@ -8,7 +8,7 @@ Before we start delving into the functioning of the SSH and TLS protocols, it is
 
 - Attacker has full control over the network (i.e., an attacker can sniff and examine all of the packets in the communication)
 - Attacker can **intercept, modify and send** any message
-- **However**, an attacker cannot decipher any of the encrypted content (has he doesn't possess the keys that encrypt the content)
+- **However**, an attacker cannot decipher any of the encrypted content (as he doesn't possess the keys that encrypt the content)
 
 This is called the **Dolev-Yao** model (default attacker model in distributed systems).
 
@@ -23,7 +23,7 @@ SSH was introduced to replace protocols like **Telnet**, that allowed you to cre
 The establishment of a SSH connection can be divided in **three** steps:
 
 1. Verification of server's **identity** by the client
-2. Negotiation of a **secret key** for encryption of all messages 
+2. Negotiation of a **secret key** for encryption of all messages
 3. Authentication of the client
 
 SSH is a protocol that will make use of both **asymmetric cryptography** (using public/private key pairs, for steps 1 and possibly 3) and **symmetric cryptography** (for step 2, and for all further communication).
@@ -68,11 +68,11 @@ We can also leverage the SSH protocol for another purpose : **tunneling**. Tunne
 
 For tunneling to work, there needs to be a **mapping** of **local** ports to **remote** ports. In the example below, we want to create an **IMAP** (mail protocol) connection using a SSH tunnel. Therefore, in the SSH tunnel configuration, we tell ssh client to listen to **port 220** (port for this protocol) and to **forward** it to port 220 in the remote machine. This way, the outgoing IMAP traffic in the client will be captured by the SSH client, sent through a SSH connection, and the sshd server in the remote machine will decrypt it and **forward it** to its local port 220.
 
-![[Pasted image 20240112151842.png]]
-SSH tunnel configuration example
+![](img/Pasted%20image%2020240112151842.png)<br></br>
+**Fig.1:** SSH tunnel configuration example
 
-![[Pasted image 20240112152011.png]]
-Diagram of the traffic flowing through a SSH tunnel
+![](img/Pasted%20image%2020240112152011.png)<br></br>
+**Fig.2:** Diagram of the traffic flowing through a SSH tunnel
 
 ### SSH Tunneling: Advantages and Disadvantages
 
@@ -100,7 +100,7 @@ For HTTPS communication, the default port used is **443**. It is also possible t
 
 ## TLS Operation Overview
 
-TLS, just like TCP, works under a **client-server** model. In the [[Secure Channels#TLS Protocol|next chapter]], we will dive into how does TLS actually work, but as a general overview, this how TLS handles the following **topics:**
+TLS, just like TCP, works under a **client-server** model. In the [next chapter](#tls-protocol), we will dive into how does TLS actually work, but as a general overview, this how TLS handles the following **topics:**
 
 - **Cryptographic Algorithms**
 	- The client presents the **cipher suites** it supports
@@ -128,9 +128,12 @@ The record protocol is responsible to divide the data needed to be sent into blo
 
 The following image represents the content inside a record:
 
-![[Pasted image 20240112191022.png]]
+![](img/Pasted%20image%2020240112191022.png)<br></br>
+**Fig.3:** Content inside a record
 
-> ___Note:___ Each data fragment can be up to $2^{14}$ **bytes** ($\approx$ 16 KBytes)
+:::info
+Each data fragment can be up to $2^{14}$ **bytes** ($\approx$ 16 KBytes)
+:::
 
 #### Sequence Numbers
 
@@ -138,7 +141,9 @@ This doesn't prevent an attacker from **replaying** or **reordering** the messag
 
 Therefore, the MAC is generated from: MAC($M_{x}$ , seq | | data)
 
-> ___Important:___ There is no **sequence number field** in a record; it is **implicit** to the message, and used in the MAC
+:::info[Important]
+There is no **sequence number field** in a record; it is **implicit** to the message, and used in the MAC
+:::
 
 #### Record Types
 
@@ -161,33 +166,50 @@ Here is the handshake protocol phase **step-by-step:**
 1. **Client** sends **list of supported crypto algorithms + nonce**
 2. **Server** receives the list and picks **one algorithm** (usually, the more secure); it then sends the **algorithm chosen + certificate** (contains server's public key) + **server nonce**
 3. **Client** will then **verify** the received certificate, and extract the **server's public key**. Then, two things can happen:
-	1. The client might compute the **pre-master secret**, encrypt it with server's public key, and send it to the server. If this happens, then the client and the server will generate the **master key** independently, from the ==pre-master secret== and the ==two nonces exchanged==
+	1. The client might compute the **pre-master secret**, encrypt it with server's public key, and send it to the server. If this happens, then the client and the server will generate the **master key** independently, from the <mark>pre-master secret</mark> and the <mark>two nonces exchanged</mark>
 	2. **Diffie-Hellman** can be used to generate the pre-master secret, which combined with the nonces will be used to get the **master key**
 4. **Client** sends a MAC message of **all** of the previously sent messages and server **verifies** it
 5. **Server** sends a MAC message of **all** of the previously sent messages and client **verifies** it
 
-> ___Note:___ The reason two nonces are sent (steps 1 and 2) is the following: Imagine Trudy is an attacker, and he is able to sniff all of the exchanged messages between Alice (client) and Bob (server). The following, he decides to repeat all of the messages sent by Alice to Bob. Because Bob will use a different nonce this time, the master secret will be different (master secret is derived from both nonces), and further communication will fail
+:::info
+The client, when it proposes the list of its supported algorithms to the server, presents for several different algorithms that are used during TLS; this is called the **cipher suite.** The agreed algorithms are:
 
-> ___Note:___ The reason why we send the MAC of all the messages in the **end** of the handshake protocol, instead of sending a MAC for each message is because it is the **handshake phase** that setups the **keys** that are going to be used (these keys are needed to generate MAC)
+1. Public-Key algorithm (RSA, ECDSA, etc,)
+2. Symmetric key algorithm (AES_128, AES_256, etc.)
+3. MAC algorithm used (SHA2, SHA3, etc.)
+:::
 
-> ___Note:___ The client, when it proposes the list of its supported algorithms to the server, presents for several different algorithms that are used during TLS; this is called the **cipher suite.** The agreed algorithms are:
->
-> 1. Public-Key algorithm (RSA, ECDSA, etc,)
-> 2. Symmetric key algorithm (AES_128, AES_256, etc.)
-> 3. MAC algorithm used (SHA2, SHA3, etc.)
+<details>
+
+<summary>Why are two nonces sent?</summary>
+
+The reason two nonces are sent (steps 1 and 2) is the following:<br></br>Imagine Trudy is an attacker, and he is able to sniff all of the exchanged messages between Alice (client) and Bob (server). He then decides to repeat all of the messages sent by Alice to Bob. Because Bob will use a different nonce this time, the master secret will be different (master secret is derived from both nonces), and further communication will fail
+
+</details>
+
+<details>
+
+<summary>Why send MAC of all the messages in the end of the handshake protocol?</summary>
+
+The reason why we send the MAC of all the messages in the **end** of the handshake protocol, instead of sending a MAC for each message is because it is the **handshake phase** that setups the **keys** that are going to be used (these keys are needed to generate MAC)
+
+</details>
+<br></br>
 
 The following image shows a typical handshake protocol message exchange:
 
-![[Pasted image 20240112183831.png]]
+![](img/Pasted%20image%2020240112183831.png)<br></br>
+**Fig.4:** Handshake protocol message exchange
 
 ### Key Derivation
 
-In the [[Secure Channels#Handshake Protocol|handshake protocol]] chapter, we saw how the client and the server would arrive at the same **pre-master secret**, and then ***derive*** the master key from it (plus the exchanged nonces). But how is this derivation done, if the two entities **must** have the same master key, but cannot send that key to each other? The solution to this is the usage of **pseudo random-number generator** for key derivation.
+In the [handshake protocol](#handshake-protocol) chapter, we saw how the client and the server would arrive at the same **pre-master secret**, and then ***derive*** the master key from it (plus the exchanged nonces). But how is this derivation done, if the two entities **must** have the same master key, but cannot send that key to each other? The solution to this is the usage of **pseudo random-number generator** for key derivation.
 
-> ___Definition___
-> - **Pseudo random-number generator:** For the same given input, it produces the same output
+:::info[Definition]
+**Pseudo random-number generator:** For the same given input, it produces the same output
+:::
 
-On the topic of **master keys**, we saw how we needed to come up with a master key to ensure confidentiality, but should we use this master key to encrypt all further traffic? The answer is **NO!** ==A cryptographic key should only be used for the same cryptographic operation== (examples of different cryptographic operations are: encrypting message content in the client side; encrypting message in the server side; generating MAC addresses in the server side, etc.). Because of this, ==we need to generate four different session keys:==
+On the topic of **master keys**, we saw how we needed to come up with a master key to ensure confidentiality, but should we use this master key to encrypt all further traffic? The answer is **NO!** <mark>A cryptographic key should only be used for the same cryptographic operation</mark> (examples of different cryptographic operations are: encrypting message content in the client side; encrypting message in the server side; generating MAC addresses in the server side, etc.). Because of this, <mark>we need to generate four different session keys:</mark>
 
 - $K_{c}$ -> **Encryption key** for data sent from client to server
 - $M_c$ -> **MAC key** for data sent from client to server
@@ -203,10 +225,10 @@ The KDF will then output a **key block**, that will be divided into these four k
 
 #### Master Secret Derivation
 
-- MS = MD5(PMS | SHA(‘A’ | PMS | R1 | R2)) | 
-        MD5(PMS | SHA(‘BB’ | PMS | R1 | R2)) | 
-        MD5(PMS | SHA(‘CCC’ | PMS | R1 | R2)) | 
-        …
+- MS &nbsp;=&nbsp; MD5(PMS | SHA(‘A’ | PMS | R1 | R2)) |<br></br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MD5(PMS | SHA(‘BB’ | PMS | R1 | R2)) |<br></br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MD5(PMS | SHA(‘CCC’ | PMS | R1 | R2)) |<br></br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…
 
 #### Session Key Derivation
 

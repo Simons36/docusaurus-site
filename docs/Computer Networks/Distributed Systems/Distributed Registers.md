@@ -1,34 +1,29 @@
 ---
 tags:
   - computer-networks
-  - "#distributed-systems"
-  - SEC
-  - notes
+  - distributed-systems
+  - to-do
 author: Simão Silva
 ---
 
-In this note, we talk about different ways to implement a distributed register, both in the arbitrary model and in a Byzantine model 
-
 ---
-# Index
 
-1. [[Distributed Registers#Register Types|Register Types]]
-	1. [[Distributed Registers#Regular Register|Regular Register]]
-	2. [[Distributed Registers#Atomic Register|Atomic Register]]
-	3. [[Distributed Registers#Byzantine Read/Write Regular Register|Byzantine Read/Write Regular Register]]
-	4. [[Distributed Registers#Byzantine Read/Write Atomic Register|Byzantine Read/Write Atomic Register]]
+In this note, we talk about different ways to implement a distributed register, both in the arbitrary model and in a Byzantine model.
 
 ---
 # Register Types
 
 In this section we will present some different types of registers, and explain each one. The types of registers are:
 
-- [[Distributed Registers#Regular Register|Regular Register]]
-- [[Distributed Registers#Atomic Register|Atomic Register]]
-- [[Distributed Registers#Byzantine Read/Write Regular Register|Byzantine Read/Write Regular Register]]
-- [[Distributed Registers#Byzantine Read/Write Atomic Register|Byzantine Read/Write Atomic Register]]
+* [Regular Register](#regular-register)
+* [Atomic Register](#atomic-register)
+* [Byzantine Read/Write Regular Register](#byzantine-readwrite-regular-register)
+* [Byzantine Read/Write Atomic Register](#byzantine-readwrite-atomic-register)
 
-> __Important:__ Whenever in this note it is referenced $(N_w, N_r)-X \ Register$, $N_w$ corresponds to number of writers, and $N_r$ corresponds to the number of readers. $X$ can be any type of register 
+:::info[Important]
+Whenever in this note it is referenced $(N_w, N_r)-X \ Register$, $N_w$ corresponds to number of writers, and $N_r$ corresponds to the number of readers. $X$ can be any type of register 
+:::
+
 ## Regular Register
 
 Regular Registers are characterized by the following two properties:
@@ -61,8 +56,9 @@ Lastly, regular registers should be able to tolerate up to $f$ **crash** faults.
 
 The algorithm for this type of register is this:
 
-![[Pasted image 20240409144626.png]]
-![[Pasted image 20240409144640.png]]**Fig.1:** Algorithm of (1,N)-Regular Register
+![](img/Pasted%20image%2020240409144626.png)
+![](img/Pasted%20image%2020240409144640.png)<br></br>
+**Fig.1:** Algorithm of (1,N)-Regular Register
 
 #### Correctness
 
