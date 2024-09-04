@@ -6,7 +6,7 @@ import rehypeKatex from 'rehype-katex';
 
 const config: Config = {
   title: 'CS Notes',
-  tagline: 'Made by <a href="https://simaosilva.com">Simão Silva</a>',
+  tagline: 'Welcome to Simao\'s CS Notes! On this website, you will find notes on various topics in Computer Science and Engineering.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -74,10 +74,10 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: '',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 's',
+        src: 'img/mini_logo.svg',
       },
       items: [
         {

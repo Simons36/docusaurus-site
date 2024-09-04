@@ -3,11 +3,32 @@
  * and scoped locally.
  */
 
+ /* Default is: black, green, black*/
+ :root{
+  --hero-bg-color: #1b1b1b;
+  --hero-text-color: #ffffff;
+  --hero-button-bg-color: #25c2a0;
+  --hero-button-hover-bg-color: #1e9f87;
+  --about-site-bg-color: #25c2a0;
+  --about-site-text-color: #000000;
+  --about-site-text-highlight: #0000EE;
+  --about-site-text-highlight-active: #ffffff;
+ }
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background-color: var(--hero-bg-color);
+  --ifm-hero-text-color: var(--hero-text-color);
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 10px; /* Optional: Adds some space between the buttons */
+  margin-top: 20px; /* Optional: Adds some space above the buttons */
 }
 
 @media screen and (max-width: 996px) {
@@ -20,4 +41,116 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.heroBannerLogo {
+  width: 300px; /* Adjust the width as needed */
+  height: auto; /* Ensures the aspect ratio is maintained */
+}
+
+
+.aboutSiteSection {
+  padding: 40px 0;
+  background-color: var(--about-site-bg-color); /* Light background color to differentiate this section */
+  color: var(--about-site-text-color);
+  text-align: center;
+}
+
+.aboutSiteRow {
+  display: flex;
+  justify-content: space-around; /* Space between columns */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  margin: 0 auto;
+}
+
+.aboutSiteColumn {
+  flex: 1; /* Flex-grow to occupy available space */
+  max-width: 45%; /* Max width for each column */
+  padding: 20px; /* Padding around the content */
+  box-sizing: border-box;
+  text-align: center; /* Center-align content */
+  --ifm-link-color: var(--about-site-text-highlight);
+  --ifm-link-hover-color: var(--about-site-text-highlight-active);
+}
+
+.aboutSiteIcon {
+  width: 80px; /* Adjust size as needed */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.aboutSiteTitle {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #000; /* Title color */
+}
+
+.aboutSiteDescription {
+  font-size: 1.15rem; /* Increase font size */
+  margin-bottom: 20px; /* Add some spacing below the description */
+}
+
+/* Additional CSS for single-column button layout */
+.buttonColumn {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Center buttons horizontally */
+  gap: 10px; /* Space between buttons */
+  width: 100%; /* Ensures button column is the full width of the column */
+}
+
+/* Adjust button styles */
+.topicButton {
+  width: 100%; /* Adjust width as needed for the button */
+  margin: 0.1rem; /* Space between buttons */
+  text-align: center;
+  font-size: 1.1rem; /* Increase button text size */
+  padding: 6px; /* Adjust padding for a more balanced button */
+  background-color: #ffffff; /* Button background color */
+}
+
+/* Adjust button hover styles */
+.topicButton:hover {
+  background-color: #f0f0f0; /* Button hover background color */
+}
+
+/* Add color styles for each topic button */
+.topicButton--networks {
+  background-color: #4A90E2; /* Blue for Computer Networks */
+  color: white;
+  border-color: #4A90E2;
+}
+
+.topicButton--networks:hover {
+  background-color: #3B7BB9; /* Darker Blue for hover */
+}
+
+.topicButton--systems {
+  background-color: #F5A623; /* Orange for Information Systems */
+  color: white;
+  border-color: #F5A623;
+}
+
+.topicButton--systems:hover {
+  background-color: #D98B1D; /* Darker Orange for hover */
+}
+
+.topicButton--os {
+  background-color: #00a400; /* Turquoise for Operating Systems */
+  color: white;
+  border-color: #00a400;
+}
+
+.topicButton--os:hover {
+  background-color: #008c00; /* Darker Turquoise for hover */
+}
+
+.topicButton--cyber {
+  background-color: #D0021B; /* Red for Cybersecurity */
+  color: white;
+  border-color: #D0021B;
+}
+
+.topicButton--cyber:hover {
+  background-color: #A50115; /* Darker Red for hover */
 }
