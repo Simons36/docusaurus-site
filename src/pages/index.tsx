@@ -4,6 +4,7 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import TypeIt from "typeit-react";
+import GitHubButton from "react-github-btn";
 
 import styles from "./index.module.css";
 
@@ -52,7 +53,7 @@ function HeroSection() {
               strings: [siteConfig.tagline],
               afterComplete: (instance) => {
                 console.log("Completed!");
-                instance.destroy();
+                instance.pause(1000).destroy();
               },
               speed: 50,
             }}
@@ -79,33 +80,28 @@ function HeroSection() {
               options={{
                 afterComplete: (instance) => {
                   console.log("Completed!");
-                  instance.destroy();
+                  instance.pause(1000).destroy();
                 },
                 speed: 50,
               }}
               getBeforeInit={(instance) => {
-
                 //sleep for 10 seconds before typing
                 instance.pause(8000).type("Feel free to explore! 🚀");
-
 
                 // Remember to return it!
                 return instance;
               }}
-              
             />
           </em>
         </p>
-        <div className="margin-top--lg">
-          <iframe
-            src="https://ghbtns.com/github-btn.html?user=yangshun&amp;repo=front-end-interview-handbook&amp;type=star&amp;count=true&amp;size=large"
-            frameBorder={0}
-            scrolling={0}
-            width={165}
-            height={30}
-            title="GitHub Stars"
-          />
-        </div>
+        <GitHubButton
+          href="https://github.com/Simons36/docusaurus-site"
+          data-color-scheme="no-preference: dark; light: light; dark: light;"
+          data-size="large"
+          aria-label="Star Simons36/docusaurus-site on GitHub"
+        >
+          Star
+        </GitHubButton>
       </div>
     </header>
   );
@@ -200,6 +196,98 @@ function AboutSiteSection() {
   );
 }
 
+function AboutMeSection() {
+  return (
+    <section className={clsx("about-me", styles.aboutMeSection)}>
+      <div className="container">
+        <div className={styles.aboutMeRow}>
+          {/* Left Column: Image */}
+          <div className={styles.aboutMeColumn}>
+            <img
+              src="img/me.jpg" // Placeholder image, replace with your image later
+              alt="Profile"
+              className={styles.aboutMeImage}
+            />
+          </div>
+
+          {/* Right Column: Text */}
+          <div className={styles.aboutMeColumn}>
+            <h2 className={styles.aboutMeTitle}>About Me</h2>
+            <p className={styles.aboutMeDescription}>
+              My name is Simão Silva, and I'm a passionate soon-to-be software
+              engineer with a deep interest in Computer Science. As a way of
+              studying for my exams, I started writing markdown notes, and I
+              have now decided to share this knowledge through this website.
+            </p>
+            <p className={styles.aboutMeDescription}>
+              Feel free to visit the links below to learn more!
+            </p>
+
+            {/* Custom bullet points section */}
+            <div className={styles.customLinks}>
+              <div className={styles.customLink}>
+                <img
+                  src="img/person-icon.svg"
+                  alt="Website Icon"
+                  className={styles.customLinkIcon}
+                />
+                <a
+                  href="https://simaosilva.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Personal Website
+                </a>
+              </div>
+              <div className={styles.customLink}>
+                <img
+                  src="img/cv-icon.svg"
+                  alt="CV Icon"
+                  className={styles.customLinkIcon}
+                />
+                <a
+                  href="https://cv.simaosilva.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  CV
+                </a>
+              </div>
+              <div className={styles.customLink}>
+                <img
+                  src="img/github-icon.svg"
+                  alt="GitHub Icon"
+                  className={styles.customLinkIcon}
+                />
+                <a
+                  href="https://github.com/Simons36"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
+
+            <p className={styles.aboutMeDescription}>
+              If you wish to contribute, or spot any mistake, please free to do
+              so:
+            </p>
+            <GitHubButton
+              href="https://github.com/Simons36/docusaurus-site/fork"
+              data-color-scheme="no-preference: dark; light: light; dark: light;"
+              data-size="large"
+              aria-label="Fork Simons36/docusaurus-site on GitHub"
+            >
+              Fork
+            </GitHubButton>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -210,6 +298,7 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <AboutSiteSection /> {/* New AboutSiteSection added here */}
+        <AboutMeSection /> {/* New AboutMeSection added here */}
       </main>
     </Layout>
   );

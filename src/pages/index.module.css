@@ -154,3 +154,63 @@
 .topicButton--cyber:hover {
   background-color: #A50115; /* Darker Red for hover */
 }
+
+
+.aboutMeSection {
+  padding: 4rem 0;
+  background-color: var(--hero-bg-color);
+  color: var(--hero-text-color);
+}
+
+.aboutMeRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Moves content to the right */
+  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+}
+
+.aboutMeColumn {
+  flex: 1;
+  max-width: 100%; /* Adjust as necessary */
+  padding: 1rem;
+}
+.aboutMeImage {
+  width: 200px; /* Adjust size as needed */
+  height: 200px;
+  border-radius: 50%; /* Makes the image round */
+  object-fit: cover; /* Ensures the image is properly cropped */
+  margin-left: 50px; /* Add margin to push the image to the right */
+}
+.aboutMeTitle {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.aboutMeDescription {
+  font-size: 1.125rem;
+  line-height: 1.85;
+}
+
+.customLinks {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.customLink {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Space between each "bullet" */
+  font-size: 1.5rem;
+}
+
+.customLinkIcon {
+  width: 32px; /* Adjust as necessary */
+  height: 32px;
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.customLink:nth-child(2) .customLinkIcon {
+  margin-left: -3px; /* Move the CV icon 10px to the left */
+  margin-right: 13px; /* Space between icon and text */
+}
+
