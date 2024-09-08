@@ -7,27 +7,10 @@ import TypeIt from "typeit-react";
 import GitHubButton from "react-github-btn";
 
 import styles from "./index.module.css";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-
-  const switchTheme = (theme) => {
-    const root = document.documentElement;
-
-    if (theme === "style1") {
-      root.style.setProperty("--hero-bg-color", "#1b1b1b");
-      root.style.setProperty("--hero-text-color", "#ffffff");
-      root.style.setProperty("--about-site-bg-color", "#25c2a0");
-      root.style.setProperty("--about-site-text-color", "#000000");
-    } else if (theme === "style2") {
-      root.style.setProperty("--hero-bg-color", "#25c2a0");
-      root.style.setProperty("--hero-text-color", "#000000");
-      root.style.setProperty("--about-site-bg-color", "#1b1b1b");
-      root.style.setProperty("--about-site-text-color", "#ffffff");
-    }
-  };
-
-  switchTheme("style1");
 
   return (
     <div>
@@ -57,7 +40,7 @@ function HeroSection() {
               },
               speed: 50,
             }}
-          ></TypeIt>
+            ></TypeIt>
         </p>
         <div className={styles.buttonContainer}>
           {" "}
