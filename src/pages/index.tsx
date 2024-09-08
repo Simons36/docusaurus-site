@@ -241,6 +241,20 @@ function AboutMeSection() {
               </div>
               <div className={styles.customLink}>
                 <img
+                  src="img/linkedin-icon.svg"
+                  alt="LinkedIn Icon"
+                  className={styles.customLinkIcon}
+                />
+                <a
+                  href="https://www.linkedin.com/in/sim%C3%A3o-silva-a3599b186/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </div>
+              <div className={styles.customLink}>
+                <img
                   src="img/cv-icon.svg"
                   alt="CV Icon"
                   className={styles.customLinkIcon}

@@ -210,7 +210,14 @@
 }
 
 .customLink:nth-child(2) .customLinkIcon {
+  margin-left: -1px; /* Move the CV icon 10px to the left */
+  margin-right: 11px; /* Space between icon and text */
+}
+
+.customLink:nth-child(3) .customLinkIcon {
   margin-left: -3px; /* Move the CV icon 10px to the left */
   margin-right: 13px; /* Space between icon and text */
 }
+
+
 
