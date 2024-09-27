@@ -15,3 +15,12 @@ slorber:
   title: Docusaurus maintainer
   url: https://sebastienlorber.com
   image_url: https://github.com/slorber.png
+
+simao:
+  name: Simão Silva
+  title: Site Owner
+  url: https://simaosilva.com
+  image_url: /img/me.jpg
+  email: email@simaosilva.com
+  socials:
+    github: Simons36
