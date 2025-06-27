@@ -34,13 +34,9 @@ function HeroSection() {
           <TypeIt
             options={{
               strings: [siteConfig.tagline],
-              afterComplete: (instance) => {
-                console.log("Completed!");
-                instance.pause(1000).destroy();
-              },
               speed: 50,
             }}
-            ></TypeIt>
+          ></TypeIt>
         </p>
         <div className={styles.buttonContainer}>
           {" "}
@@ -61,10 +57,6 @@ function HeroSection() {
           <em>
             <TypeIt
               options={{
-                afterComplete: (instance) => {
-                  console.log("Completed!");
-                  instance.pause(1000).destroy();
-                },
                 speed: 50,
               }}
               getBeforeInit={(instance) => {
