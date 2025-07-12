@@ -1,28 +1,31 @@
 import React, { useEffect, useRef } from 'react';
 import TypeIt from 'typeit';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 
 const Typewriter = ({ text, options, ...props }) => {
+  const isBrowser = useIsBrowser();
+  const elRef = useRef(null);
   const typeItInstance = useRef(null);
 
   useEffect(() => {
-    // Ensure that we only initialize TypeIt once
-    if (!typeItInstance.current) {
-      typeItInstance.current = new TypeIt({
+    if (!isBrowser) return;
+
+    if (elRef.current && !typeItInstance.current) {
+      typeItInstance.current = new TypeIt(elRef.current, {
         ...options,
-        strings: options.strings || [text], // Use provided text as default if no strings array
+        strings: options?.strings || [text],
       }).go();
     }
 
     return () => {
-      // Cleanup TypeIt instance on component unmount
       if (typeItInstance.current) {
         typeItInstance.current.destroy();
         typeItInstance.current = null;
       }
     };
-  }, [text, options]);
+  }, [text, options, isBrowser]);
 
-  return <span {...props} />;
+  return <span ref={elRef} {...props} />;
 };
 
 export default Typewriter;
